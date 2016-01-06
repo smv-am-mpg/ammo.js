@@ -1,6 +1,7 @@
 ammo.js
 =======
 
+[![wercker status](https://app.wercker.com/status/a9c9cb525dd998b30642ab0d767a8cd7/m/master "wercker status")](https://app.wercker.com/project/bykey/a9c9cb525dd998b30642ab0d767a8cd7)
 
 # Demos
 
