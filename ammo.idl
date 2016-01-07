@@ -69,9 +69,9 @@ interface btMotionState {
 
 };
 
-[JSImplementation="ContactResultCallback"]
+[JSImplementation="btDefaultMotionState"]
 interface testMotionState {
-  void myMotionState();
+  void testMotionState();
   void getWorldTransform([Ref] btTransform worldTrans);
   void setWorldTransform([Const, Ref] btTransform worldTrans);
 };
