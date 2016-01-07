@@ -49,7 +49,8 @@ btQuaternion implements btQuadWord;
 interface btMatrix3x3 {
   void setEulerZYX(float ex, float ey, float ez);
   void getRotation([Ref] btQuaternion q);
-  [Value] btVector3 getRow(long y);
+  [Const, Ref] btVector3 getRow(long y);
+  [Value] btVector3 getColumn(long y);
 };
 
 interface btTransform {
@@ -65,8 +66,14 @@ interface btTransform {
 };
 
 interface btMotionState {
+
+};
+
+[JSImplementation="ContactResultCallback"]
+interface testMotionState {
+  void myMotionState();
   void getWorldTransform([Ref] btTransform worldTrans);
-  void setWorldTransform([Ref] btTransform worldTrans);
+  void setWorldTransform([Const, Ref] btTransform worldTrans);
 };
 
 interface btDefaultMotionState {
