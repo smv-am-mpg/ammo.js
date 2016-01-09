@@ -1,10 +1,27 @@
-box: nodesource/trusty
+box:
+      id: ubuntu
+      tag: 15.10
 no-response-timeout: 20
 command-timeout: 60
 build:
   steps:
-    - install-packages:
-        packages: git build-essential default-jre cmake g++ python libtool autotools-dev automake curl tar python-pip nodejs
+    - script:
+         name: update apt
+         code: |
+           sudo apt-get update -y
+           sudo apt-get update -y
+           sudo apt-get --no-upgrade install git -y
+           sudo apt-get --no-upgrade install build-essential -y
+           sudo apt-get --no-upgrade install default-jre -y
+           sudo apt-get --no-upgrade install cmake -y
+           sudo apt-get --no-upgrade install g++ -y
+           sudo apt-get --no-upgrade install python -y
+           sudo apt-get --no-upgrade install libtool -y
+           sudo apt-get --no-upgrade install autotools-dev -y
+           sudo apt-get --no-upgrade install automake -y
+           sudo apt-get --no-upgrade install curl -y
+           sudo apt-get --no-upgrade install tar  -y
+           sudo apt-get --no-upgrade install nodejs -y
     - script:
          name: emsdk
          code: |
@@ -30,7 +47,6 @@ build:
            curl -L -k https://github.com/c4milo/github-release/releases/download/v1.0.8/github-release_v1.0.8_linux_amd64.tar.gz | tar -xz
            ./github-release ${WERCKER_GIT_OWNER}/${WERCKER_GIT_REPOSITORY} v.${WERCKER_GIT_COMMIT} "master" "Build of ammo.js" "temp.js"
            cd ..
-           #rm -r emsdk_portable 
     - script:
          name: ammo_test
          code: | 
