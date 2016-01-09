@@ -1,4 +1,10 @@
-
+// Test
+ interface btIndexedMesh {
+   attribute long m_numTriangles;
+   attribute long m_triangleIndexStride;
+   attribute long m_numVertices;
+   attribute long m_vertexStride;
+ }
 // Linear Math
 
 interface btVector3 {
